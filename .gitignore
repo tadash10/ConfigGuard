@@ -1,0 +1,10 @@
+# Ignore log files
+config_management.log
+
+# Ignore any compiled Python bytecode
+*.pyc
+
+# Ignore any virtual environment directories
+venv/
+
+This will ignore the config_management.log file created by the script, any compiled Python bytecode files that may be generated, and any virtual environment directories (assuming you are using a virtual environment for your project).
