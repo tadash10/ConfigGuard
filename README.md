@@ -1,53 +1,73 @@
 # ConfigGuard
 
-Configuration Management Script Documentation
-Introduction
-
-The Configuration Management Script is a Python script designed to manage and monitor the configuration of network devices and servers. This script helps ensure that security policies are applied consistently across the environment and prevent misconfigurations that could introduce vulnerabilities.
-Requirements
-
-The Configuration Management Script requires Python 3.x to be installed on the system. It also requires the following Python modules to be installed:
-
-    os
-    subprocess
-    logging
-
+The Configuration Management Tool is a Python script designed to help users manage and maintain the desired state of various configuration items on their system. It allows users to define a desired state, compare it with the current state, and apply changes to bring the system in line with the desired state.
 Installation
 
-    Download the Configuration Management Script from the GitHub repository.
-    Install Python 3.x on the system if it is not already installed.
-    Install the required Python modules using pip: pip install os subprocess logging
-    Run the script using the command python config_management.py.
+    Clone the repository or download the script from the GitHub page:
+
+bash
+
+git clone https://github.com/your-username/configuration-management-tool.git
+cd configuration-management-tool
+
+    Make sure you have Python 3 installed on your system.
+
+    Install the required dependencies using pip:
+
+bash
+
+pip install -r requirements.txt
 
 Usage
 
-Upon running the script, the user is presented with a menu that allows them to choose between different options. The available options are:
+The Configuration Management Tool supports several features that can be accessed through the command line interface.
 
-    1: Retrieve current state
-    2: Compare current state to desired state
-    3: Apply changes to bring current state in line with desired state
-    4: Exit
+bash
 
-Option 1: Retrieve current state
+python config_management.py [--config-file CONFIG_FILE]
 
-This option retrieves the current state of the configuration items and displays them on the screen. The configuration items that are retrieved are:
+Optional arguments:
 
-    Firewall rules
-    Access controls
-    System settings
+    --config-file CONFIG_FILE: Path to the configuration file containing the desired state (default: desired_state.json).
 
-Option 2: Compare current state to desired state
+Menu Options
 
-This option compares the current state of the configuration items to the desired state defined in the script. If any differences are found, the script displays a list of the changes that need to be made to bring the current state in line with the desired state.
-Option 3: Apply changes to bring current state in line with desired state
+    View Current State: Display the current state of the configuration items.
 
-This option applies the changes needed to bring the current state of the configuration items in line with the desired state. If any errors occur during the application of changes, the script logs an error message to the config_management.log file.
-Option 4: Exit
+    View Desired State: Display the desired state defined in the configuration file.
 
-This option exits the script.
+    Compare States: Compare the current state with the desired state and show the changes needed to achieve the desired state.
+
+    Apply Changes: Apply changes to bring the system in line with the desired state. Users will be prompted for confirmation before applying the changes.
+
+    Exit: Exit the script.
+
+Interactive Mode
+
+The Configuration Management Tool offers an interactive setup process to guide users through initial configuration, such as setting up logging preferences and other options. Users can interactively review and confirm individual changes before applying them.
+Configuration File
+
+The tool supports loading the desired state from a configuration file in JSON format. The default configuration file is desired_state.json, but you can specify a different file using the --config-file command-line argument.
 Logging
 
-The Configuration Management Script logs all events and changes to the config_management.log file. This log file is useful for monitoring and auditing purposes.
-Disclaimer
+The script logs all actions and changes to the config_management.log file for monitoring purposes.
+Important Notes
 
-The Configuration Management Script is provided as-is, without any express or implied warranties. The author is not responsible for any damages or losses that may arise from the use of this script. It is recommended that the user thoroughly test the script in a non-production environment before using it in a production environment.
+    Use at Your Own Risk: This script is provided as-is without warranty of any kind. Use it at your own risk and ensure you have backups of critical configuration files before applying changes.
+
+    Validation and Testing: The script includes functions for validating the desired state and automated testing to ensure its reliability. However, we recommend users to thoroughly test the script in their environment before applying changes to critical systems.
+
+    Integration with Configuration Management Tools: The script allows integration with popular configuration management tools like Ansible, Puppet, or Chef. Users can set up specific configuration management tools during the interactive configuration setup process.
+
+    Secure Input Handling: The tool uses secure input handling functions to read sensitive information (e.g., passwords, API keys) from the user or configuration files, providing an added layer of security.
+
+    User-friendly Messages: The script offers clear instructions and information through user-friendly messages during different stages of its execution.
+
+    Support for Multiple Configuration Tools: The tool supports multiple configuration management tools, allowing users to choose the one that best fits their environment.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+Contributions
+
+Contributions to the Configuration Management Tool are welcome. Feel free to submit bug reports, feature requests, or pull requests on the GitHub repository.
